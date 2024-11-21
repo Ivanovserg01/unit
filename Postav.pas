@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DB, mySQLDbTables, StdCtrls, Mask, DBCtrls, ExtCtrls, Grids,
-  DBGrids;
+  DBGrids, frxClass, frxDBSet;
 
 type
   TTPostav = class(TForm)
@@ -14,6 +14,10 @@ type
     MySQLDatabase1: TMySQLDatabase;
     MySQLTable1: TMySQLTable;
     DataSource1: TDataSource;
+    Button1: TButton;
+    frxDBDataset1: TfrxDBDataset;
+    frxReport1: TfrxReport;
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -26,5 +30,10 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TTPostav.Button1Click(Sender: TObject);
+begin
+frxReport1.showreport();
+end;
 
 end.
